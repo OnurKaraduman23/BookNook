@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="BookNook.features.favorites.main" target="11" />
+      <module name="BookNook.features.favorites.test" target="11" />
+      <module name="BookNook.features.home.main" target="11" />
+      <module name="BookNook.features.home.test" target="11" />
+      <module name="BookNook.features.main" target="11" />
+      <module name="BookNook.features.search.main" target="11" />
+      <module name="BookNook.features.search.test" target="11" />
+      <module name="BookNook.features.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
