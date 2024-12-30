@@ -43,6 +43,7 @@ dependencies {
     implementation(project(":features:home:presentation"))
     implementation(project(":features:search:presentation"))
     implementation(project(":features:favorites:presentation"))
+    implementation(project(":features:onboarding:presentation"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

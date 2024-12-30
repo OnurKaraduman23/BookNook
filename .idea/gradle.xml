@@ -21,6 +21,10 @@
             <option value="$PROJECT_DIR$/features/home/data" />
             <option value="$PROJECT_DIR$/features/home/domain" />
             <option value="$PROJECT_DIR$/features/home/presentation" />
+            <option value="$PROJECT_DIR$/features/onboarding" />
+            <option value="$PROJECT_DIR$/features/onboarding/data" />
+            <option value="$PROJECT_DIR$/features/onboarding/domain" />
+            <option value="$PROJECT_DIR$/features/onboarding/presentation" />
             <option value="$PROJECT_DIR$/features/search" />
             <option value="$PROJECT_DIR$/features/search/data" />
             <option value="$PROJECT_DIR$/features/search/domain" />

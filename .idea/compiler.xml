@@ -7,6 +7,9 @@
       <module name="BookNook.features.home.main" target="11" />
       <module name="BookNook.features.home.test" target="11" />
       <module name="BookNook.features.main" target="11" />
+      <module name="BookNook.features.onboarding.data.test" target="11" />
+      <module name="BookNook.features.onboarding.main" target="11" />
+      <module name="BookNook.features.onboarding.test" target="11" />
       <module name="BookNook.features.search.main" target="11" />
       <module name="BookNook.features.search.test" target="11" />
       <module name="BookNook.features.test" target="11" />
