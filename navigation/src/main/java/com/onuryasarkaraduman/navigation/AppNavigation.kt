@@ -100,7 +100,7 @@ fun AppNavigation(
                 )
             }
             composable(route = Route.CategoriesSelectorScreen.route) {
-                CategoriesSelectorScreen()
+                CategoriesSelectorScreen(onNextClick = {})
             }
             composable(route = Route.HomeScreen.route) {
                 HomeScreen()

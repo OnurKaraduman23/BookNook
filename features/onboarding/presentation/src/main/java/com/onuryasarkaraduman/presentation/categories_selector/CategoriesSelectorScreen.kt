@@ -1,22 +1,76 @@
 package com.onuryasarkaraduman.presentation.categories_selector
 
+import android.R.attr.category
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import com.onuryasarkaraduman.core.R
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import com.onuryasarkaraduman.core.domain.model.UserCategory
+import com.onuryasarkaraduman.presentation.components.NextButton
+import com.onuryasarkaraduman.presentation.welcome.components.CategoryCard
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun CategoriesSelectorScreen(){
+fun CategoriesSelectorScreen(
+    onNextClick: () -> Unit
+) {
     Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        val selectedStates = remember {
+            mutableStateListOf<Boolean>().apply {
+                addAll(List(UserCategory.entries.count()) { false })
+            }
+        }
 
-        Text(text = "Categories Selector Screen")
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Spacer(modifier = Modifier.height(16.dp))
 
+            FlowRow(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                UserCategory.entries.forEachIndexed { index, category ->
+                    CategoryCard(
+                        title = stringResource(id = category.displayName),
+                        image = category.imageResource,
+                        isSelected = selectedStates[index],
+                        onToggleSelect = { selectedStates[index] = !selectedStates[index] }
+                    )
+                }
+            }
+        }
+        NextButton(
+            text = stringResource(id = R.string.next),
+            textColor = colorResource(id = R.color.black),
+            isEnabled = selectedStates.count { it } >= 4,
+            onClick = { onNextClick() }
+        )
     }
 }

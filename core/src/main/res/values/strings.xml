@@ -4,4 +4,18 @@
     <string name="onboarding_welcome">Discover a world where books connect people.
 Find fellow readers, share your favorite books, and make new friends.
 Let’s turn every page into an opportunity to connect.</string>
+    <string name="technology">Technology</string>
+    <string name="sports">Sports</string>
+    <string name="health">Health</string>
+    <string name="music">Music</string>
+    <string name="art">Art</string>
+    <string name="travel">Travel</string>
+    <string name="food">Food</string>
+    <string name="science">Science</string>
+    <string name="fantasy">Fantasy</string>
+    <string name="mystery">Mystery</string>
+    <string name="biography">Biography</string>
+    <string name="self_help">Self Help</string>
+    <string name="history">History</string>
+    <string name="fiction">Fiction</string>
 </resources>
