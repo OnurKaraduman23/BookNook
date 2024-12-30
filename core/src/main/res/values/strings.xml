@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BookNook</string>
+    <string name="next">Next</string>
+    <string name="onboarding_welcome">Discover a world where books connect people.
+Find fellow readers, share your favorite books, and make new friends.
+Let’s turn every page into an opportunity to connect.</string>
 </resources>

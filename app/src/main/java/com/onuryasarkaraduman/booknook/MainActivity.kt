@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     AppNavigation(
                         navController = navController,
-                        startDestination = Route.HomeScreen.route
+                        startDestination = Route.WelcomeScreen.route
                     )
                 }
             }
