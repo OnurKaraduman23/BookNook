@@ -21,6 +21,8 @@ import com.onuryasarkaraduman.navigation.components.BottomNavigationItem
 import com.onuryasarkaraduman.presentation.FavoritesScreen
 import com.onuryasarkaraduman.presentation.HomeScreen
 import com.onuryasarkaraduman.presentation.SearchScreen
+import com.onuryasarkaraduman.presentation.categories_selector.CategoriesSelectorScreen
+import com.onuryasarkaraduman.presentation.welcome.WelcomeScreen
 
 @Composable
 fun AppNavigation(
@@ -90,6 +92,16 @@ fun AppNavigation(
             navController = navController,
             startDestination = startDestination
         ) {
+            composable(route = Route.WelcomeScreen.route) {
+                WelcomeScreen(
+                    onNextClick = {
+                        navController.navigate(Route.CategoriesSelectorScreen.route)
+                    }
+                )
+            }
+            composable(route = Route.CategoriesSelectorScreen.route) {
+                CategoriesSelectorScreen()
+            }
             composable(route = Route.HomeScreen.route) {
                 HomeScreen()
             }
@@ -99,6 +111,7 @@ fun AppNavigation(
             composable(route = Route.FavoritesScreen.route) {
                 FavoritesScreen()
             }
+
 
         }
 
