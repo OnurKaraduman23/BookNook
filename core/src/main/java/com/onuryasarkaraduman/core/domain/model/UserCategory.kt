@@ -6,20 +6,77 @@ import com.onuryasarkaraduman.core.R
 enum class UserCategory(
     @StringRes val displayName: Int,
     val imageResource: Int,
+    val value: String,
 ) {
-    TECHNOLOGY(R.string.technology, R.drawable.technology),
-    SPORTS(R.string.sports, R.drawable.sports),
-    HEALTH(R.string.health, R.drawable.health),
-    MUSIC(R.string.music, R.drawable.music),
-    ART(R.string.art, R.drawable.art),
-    TRAVEL(R.string.travel, R.drawable.travel),
-    FOOD(R.string.food, R.drawable.food),
-    FICTION(R.string.fiction, R.drawable.fiction),
-    SCIENCE(R.string.science, R.drawable.science),
-    FANTASY(R.string.fantasy, R.drawable.fantasy),
-    MYSTERY(R.string.mystery, R.drawable.mystery),
-    BIOGRAPHY(R.string.biography, R.drawable.biography),
-    SELF_HELP(R.string.self_help, R.drawable.self_help),
-    HISTORY(R.string.history, R.drawable.history)
+    TECHNOLOGY(
+        displayName = R.string.technology,
+        imageResource = R.drawable.technology,
+        value = "technology"
+    ),
+    SPORTS(
+        displayName = R.string.sports,
+        imageResource = R.drawable.sports,
+        value = "sports"
+    ),
+    HEALTH(
+        displayName = R.string.health,
+        imageResource = R.drawable.health,
+        value = "health"
+    ),
+    MUSIC(
+        displayName = R.string.music,
+        imageResource = R.drawable.music,
+        value = "music"
+    ),
+    ART(
+        displayName = R.string.art,
+        imageResource = R.drawable.art,
+        value = "art"
+    ),
+    TRAVEL(
+        displayName = R.string.travel,
+        imageResource = R.drawable.travel,
+        value = "travel"
+    ),
+    FOOD(
+        displayName = R.string.food,
+        imageResource = R.drawable.food,
+        value = "food"
+    ),
+    FICTION(
+        displayName = R.string.fiction,
+        imageResource = R.drawable.fiction,
+        value = "fiction"
+    ),
+    SCIENCE(
+        displayName = R.string.science,
+        imageResource = R.drawable.science,
+        value = "science"
+    ),
+    FANTASY(
+        displayName = R.string.fantasy,
+        imageResource = R.drawable.fantasy,
+        value = "fantasy"
+    ),
+    MYSTERY(
+        displayName = R.string.mystery,
+        imageResource = R.drawable.mystery,
+        value = "mystery"
+    ),
+    BIOGRAPHY(
+        displayName = R.string.biography,
+        imageResource = R.drawable.biography,
+        value = "biography"
+    ),
+    SELF_HELP(
+        displayName = R.string.self_help,
+        imageResource = R.drawable.self_help,
+        value = "self_help"
+    ),
+    HISTORY(
+        displayName = R.string.history,
+        imageResource = R.drawable.history,
+        value = "history"
+    )
 }
 

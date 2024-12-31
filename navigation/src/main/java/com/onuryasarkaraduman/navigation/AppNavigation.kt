@@ -10,6 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -22,6 +23,7 @@ import com.onuryasarkaraduman.presentation.FavoritesScreen
 import com.onuryasarkaraduman.presentation.HomeScreen
 import com.onuryasarkaraduman.presentation.SearchScreen
 import com.onuryasarkaraduman.presentation.categories_selector.CategoriesSelectorScreen
+import com.onuryasarkaraduman.presentation.categories_selector.CategoriesViewModel
 import com.onuryasarkaraduman.presentation.welcome.WelcomeScreen
 
 @Composable
@@ -100,7 +102,15 @@ fun AppNavigation(
                 )
             }
             composable(route = Route.CategoriesSelectorScreen.route) {
-                CategoriesSelectorScreen(onNextClick = {})
+                val viewModel: CategoriesViewModel = hiltViewModel()
+                val uiEffect = viewModel.uiEffect
+                CategoriesSelectorScreen(
+                    onAction = viewModel::onAction,
+                    uiEffect = uiEffect,
+                    onNavigateNextScreen = {
+                        navController.navigate(Route.HomeScreen.route)
+                    }
+                )
             }
             composable(route = Route.HomeScreen.route) {
                 HomeScreen()
