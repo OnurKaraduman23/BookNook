@@ -92,9 +92,9 @@ fun CategoriesSelectorScreen(
         NextButton(
             text = stringResource(id = R.string.next),
             textColor = colorResource(id = R.color.black),
-            isEnabled = selectedStates.count { it } >= 4,
+            isEnabled = selectedStates.count { it } >= 4, // TODO: Kendime Not: Bu business logic :D Use casede mi olmalı yoksa başka bir yerde mi? Araştır
             onClick = {
-                val selectedStatesList = selectedStates.toList()
+                val selectedStatesList = selectedStates.toList() // TODO: Bu bile bir business logic
                 onAction(
                     CategoriesUiAction.SaveCategories(selectedStates = selectedStatesList)
                 )
