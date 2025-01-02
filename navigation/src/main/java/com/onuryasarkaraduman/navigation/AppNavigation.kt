@@ -11,6 +11,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -21,6 +22,7 @@ import com.onuryasarkaraduman.navigation.components.BookNookBottomNavigation
 import com.onuryasarkaraduman.navigation.components.BottomNavigationItem
 import com.onuryasarkaraduman.presentation.FavoritesScreen
 import com.onuryasarkaraduman.presentation.HomeScreen
+import com.onuryasarkaraduman.presentation.HomeViewModel
 import com.onuryasarkaraduman.presentation.SearchScreen
 import com.onuryasarkaraduman.presentation.categories_selector.CategoriesSelectorScreen
 import com.onuryasarkaraduman.presentation.categories_selector.CategoriesViewModel
@@ -113,7 +115,15 @@ fun AppNavigation(
                 )
             }
             composable(route = Route.HomeScreen.route) {
-                HomeScreen()
+                val viewModel: HomeViewModel = hiltViewModel()
+                val uiState by viewModel.categoryRecommendedUiState.collectAsStateWithLifecycle()
+                val uiEffect = viewModel.uiEffect
+                HomeScreen(
+                    uiState = uiState,
+                    uiEffect = uiEffect,
+                    onAction = viewModel::onAction,
+                    onNavigateRecommendedDetail = {}
+                )
             }
             composable(route = Route.SearchScreen.route) {
                 SearchScreen()
