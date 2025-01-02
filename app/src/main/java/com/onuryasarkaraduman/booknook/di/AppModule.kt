@@ -3,7 +3,7 @@ package com.onuryasarkaraduman.booknook.di
 import android.app.Application
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
-import com.onuryasarkaraduman.core.data.preferences.DefaultPreferences
+import com.onuryasarkaraduman.core.data.local.preferences.DefaultPreferences
 import com.onuryasarkaraduman.core.domain.preferences.Preferences
 import dagger.Module
 import dagger.Provides
@@ -28,4 +28,6 @@ object AppModule {
     fun providePreferences(sharedPreferences: SharedPreferences): Preferences{
         return DefaultPreferences(sharedPreferences)
     }
+
+
 }
