@@ -41,6 +41,7 @@ android {
 dependencies {
 
     implementation(project(":core"))
+    implementation(project(":design_system"))
     implementation(project(":features:home:domain"))
 
     implementation(libs.androidx.core.ktx)
@@ -57,9 +58,14 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    debugImplementation(libs.ui.tooling)
 
     // Hilt
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
+
+    implementation(libs.glide)
+    implementation(libs.glide.compose)
+
 }

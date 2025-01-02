@@ -16,6 +16,10 @@ uiTooling = "1.7.6"
 hilt = "2.52"
 ksp = "2.0.20-1.0.24"
 hiltNavigationCompose = "1.2.0"
+retrofit = "2.11.0"
+glide = "4.15.1"
+glide_compiler = "4.15.1"
+glide_compose = "1.0.0-beta01"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -35,14 +39,22 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
-#Navigation
+# Navigation
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "uiTooling" }
 
-#Hilt
+# Hilt
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+
+# Retrofit
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+glide_compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide_compiler" }
+glide_compose = { module = "com.github.bumptech.glide:compose", version.ref = "glide_compose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
