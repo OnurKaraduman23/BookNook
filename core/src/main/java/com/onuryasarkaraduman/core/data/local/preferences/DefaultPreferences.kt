@@ -1,4 +1,4 @@
-package com.onuryasarkaraduman.core.data.preferences
+package com.onuryasarkaraduman.core.data.local.preferences
 
 import android.content.SharedPreferences
 import com.onuryasarkaraduman.core.domain.preferences.Preferences
