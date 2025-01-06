@@ -31,14 +31,16 @@ class CategoriesViewModel @Inject constructor(
 
     }
 
-    fun saveSelectedCategories(selectedStates: List<Boolean>) {
+    private fun saveSelectedCategories(selectedStates: List<Boolean>) {
         viewModelScope.launch {
             val selectedCategories = UserCategory.entries
-                .filterIndexed { index, _ -> selectedStates[index] }
-                .map { it.value }
-                .toSet()
-            preferences.saveCategories(selectedCategories)
-            emitUiEffect(CategoriesUiEffect.GoToNextScreen)
+                    .filterIndexed { index, _ -> selectedStates[index] }
+                    .map { it.value }
+                    .toSet()
+                preferences.saveCategories(selectedCategories)
+                emitUiEffect(CategoriesUiEffect.GoToNextScreen)
+
+
         }
 
     }

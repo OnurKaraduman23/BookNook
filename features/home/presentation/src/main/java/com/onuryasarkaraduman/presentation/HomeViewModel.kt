@@ -1,24 +1,22 @@
 package com.onuryasarkaraduman.presentation
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.onuryasarkaraduman.core.common.Resource
 import com.onuryasarkaraduman.core.domain.preferences.Preferences
+import com.onuryasarkaraduman.presentation.HomeContract.UiAction
+import com.onuryasarkaraduman.presentation.HomeContract.UiEffect
+import com.onuryasarkaraduman.presentation.HomeContract.UiState
 import com.onuryasarkaraduman.use_case.GetBooksByCategoriesUseCase
 import com.onuryasarkaraduman.use_case.GetRandomCategoryUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.launch
-import javax.inject.Inject
-
-import com.onuryasarkaraduman.presentation.HomeContract.UiState
-import com.onuryasarkaraduman.presentation.HomeContract.UiAction
-import com.onuryasarkaraduman.presentation.HomeContract.UiEffect
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
@@ -38,11 +36,46 @@ class HomeViewModel @Inject constructor(
             is UiAction.LoadCategoriesAndFetchBooks -> {
                 loadCategoriesAndFetchBooks()
             }
+
+            is UiAction.FetchBooksByCategoryChipButtons -> {
+                fetchBooksByCategory(uiAction.category)
+            }
         }
 
     }
 
-    fun loadCategoriesAndFetchBooks() {
+    private fun fetchBooksByCategory(category: String) {
+        viewModelScope.launch {
+            getBooksByCategoriesUseCase(category).collect { result ->
+                when (result) {
+                    is Resource.Loading -> {
+                        updateUiSate { copy(isLoading = true, selectedCategory = category) }
+                    }
+
+                    is Resource.Success -> {
+                        updateUiSate {
+                            copy(
+                                isLoading = false,
+                                recommendedList = result.data.orEmpty(),
+                                selectedCategory = category
+                            )
+                        }
+                    }
+
+                    is Resource.Error -> {
+                        updateUiSate {
+                            copy(
+                                isLoading = false,
+                                errorMessage = result.message ?: "An unknown error"
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun loadCategoriesAndFetchBooks() {
         val categories = preferences.getCategories()
         val randomCategory = getRandomCategoryUseCase.execute(categories)
 

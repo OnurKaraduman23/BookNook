@@ -1,6 +1,5 @@
 package com.onuryasarkaraduman.presentation.components
 
-import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,9 +19,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.onuryasarkaraduman.core.R
 import com.onuryasarkaraduman.design_system.GlideImageAsync
 import com.onuryasarkaraduman.model.CategoriesRecommendedModel
-import com.onuryasarkaraduman.core.R
 
 @Composable
 fun HomeRecommendedBooksCard(
@@ -32,7 +31,7 @@ fun HomeRecommendedBooksCard(
 ) {
     Card(
         modifier = modifier.padding(8.dp)
-            .size(width = 200.dp, height = 300.dp),
+            .size(width = 150.dp, height = 250.dp),
         elevation = CardDefaults.cardElevation(16.dp),
         border = BorderStroke(
             width = 2.dp,
@@ -42,9 +41,11 @@ fun HomeRecommendedBooksCard(
 
         ) {
         Column(
-            modifier = Modifier,
+            modifier = Modifier
+                .padding(top = 8.dp),
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
+
         ) {
             GlideImageAsync(
                 imageUrl = book.bookUrl
@@ -53,14 +54,14 @@ fun HomeRecommendedBooksCard(
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 modifier = Modifier.align(Alignment.Start)
-                    .padding(8.dp),
+                    .padding(4.dp),
                 text = book.bookName,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
-            
+
         }
 
     }

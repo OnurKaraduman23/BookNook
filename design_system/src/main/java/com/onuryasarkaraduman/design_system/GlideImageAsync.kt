@@ -19,7 +19,7 @@ fun GlideImageAsync(imageUrl: String) {
         contentDescription = "Product thumbnail image",
         contentScale = ContentScale.Fit,
         modifier = Modifier
-            .size(250.dp)
+            .size(175.dp)
     ) {
         it.load(imageUrl)
             .placeholder(R.drawable.art)
