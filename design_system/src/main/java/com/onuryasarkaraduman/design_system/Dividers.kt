@@ -1,4 +1,4 @@
-package com.onuryasarkaraduman.presentation.components
+package com.onuryasarkaraduman.design_system
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding

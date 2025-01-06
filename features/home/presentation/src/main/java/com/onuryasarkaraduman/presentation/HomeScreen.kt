@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,13 +21,13 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import com.onuryasarkaraduman.core.R
 import com.onuryasarkaraduman.design_system.CategoriesSegmentedButtonRow
+import com.onuryasarkaraduman.design_system.DividerHorizontal
 import com.onuryasarkaraduman.design_system.ErrorScreen
 import com.onuryasarkaraduman.design_system.LoadingScreen
 import com.onuryasarkaraduman.model.CategoriesRecommendedModel
 import com.onuryasarkaraduman.presentation.HomeContract.UiAction
 import com.onuryasarkaraduman.presentation.HomeContract.UiEffect
 import com.onuryasarkaraduman.presentation.HomeContract.UiState
-import com.onuryasarkaraduman.presentation.components.DividerHorizontal
 import com.onuryasarkaraduman.presentation.components.FriendsProfileImage
 import com.onuryasarkaraduman.presentation.components.HomeRecommendedBooksCard
 import com.onuryasarkaraduman.presentation.components.TextHeaders
@@ -42,7 +41,7 @@ fun HomeScreen(
     uiEffect: Flow<UiEffect>,
     onNavigateRecommendedDetail: (String) -> Unit,
 ) {
-    val context = LocalContext.current // Toast message için lazım
+
     val lifeCycleOwner = androidx.lifecycle.compose.LocalLifecycleOwner.current
     val selectedCategory = uiState.selectedCategory
 
