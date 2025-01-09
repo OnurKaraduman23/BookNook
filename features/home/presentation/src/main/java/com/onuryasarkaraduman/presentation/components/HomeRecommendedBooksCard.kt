@@ -4,6 +4,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -20,6 +21,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.onuryasarkaraduman.core.R
+import com.onuryasarkaraduman.design_system.CategoriesComponent
 import com.onuryasarkaraduman.design_system.GlideImageAsync
 import com.onuryasarkaraduman.model.CategoriesRecommendedModel
 
@@ -42,7 +44,7 @@ fun HomeRecommendedBooksCard(
         ) {
         Column(
             modifier = Modifier
-                .padding(top = 8.dp),
+                .padding(8.dp),
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
 
@@ -53,14 +55,25 @@ fun HomeRecommendedBooksCard(
 
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                modifier = Modifier.align(Alignment.Start)
-                    .padding(4.dp),
+                modifier = Modifier.align(Alignment.Start),
                 text = book.bookName,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp),
+                horizontalAlignment = Alignment.Start
+            ){
+                CategoriesComponent(
+                    categoryText = book.category
+                )
+            }
+
 
         }
 
@@ -75,7 +88,8 @@ fun HomeRecommendedBooksCardPreview() {
         book = CategoriesRecommendedModel(
             id = "asf",
             bookName = "Dante's Inferno,Dante's Inferno,Dante's Inferno,Dante's Inferno,Dante's Inferno",
-            bookUrl = "Image"
+            bookUrl = "Image",
+            category = "fiction / science"
         ),
         onClick = {}
     )

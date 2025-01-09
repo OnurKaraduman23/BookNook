@@ -8,7 +8,8 @@ fun HomeCategoriesResponse.toDomain(): List<CategoriesRecommendedModel> {
         CategoriesRecommendedModel(
             id = item?.id.orEmpty(),
             bookName = item?.volumeInfo?.title.orEmpty(),
-            bookUrl = item?.volumeInfo?.imageLinks?.thumbnail.orEmpty()
+            bookUrl = item?.volumeInfo?.imageLinks?.thumbnail.orEmpty(),
+            category = item?.volumeInfo?.categories?.firstOrNull().orEmpty(),
         )
     }
 }

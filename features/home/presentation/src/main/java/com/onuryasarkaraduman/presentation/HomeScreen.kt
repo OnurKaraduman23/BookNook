@@ -1,5 +1,6 @@
 package com.onuryasarkaraduman.presentation
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -12,6 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -143,14 +146,15 @@ fun RecommendedForYouSection(recommendedList: List<CategoriesRecommendedModel>) 
     LazyRow(
         modifier = Modifier
             .fillMaxWidth()
+            .shadow(elevation = 24.dp, shape = RectangleShape, clip = false)
             .padding(vertical = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding = PaddingValues(horizontal = 16.dp)
+        contentPadding = PaddingValues(horizontal = 16.dp),
     ) {
         items(recommendedList) {
             HomeRecommendedBooksCard(
                 book = it,
-                onClick = {}
+                onClick = {Log.e("Dante","name: ${it.bookName} category: ${it.category}")}
             )
 
 
